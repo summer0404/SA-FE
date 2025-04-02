@@ -4,19 +4,17 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+@theme {
+  --color-linear-gradient: linear-gradient(159.95deg, #D8D2FC 0%, #D8D2FC 0%, #D8D2FC 0%, #FDE2E0 28%, #E6E4EA 59%, #E0E9F4 100%, rgba(230, 225, 232, 0%) 100%, #E0E9F4 100%);
+  --color-radical-gradient: radial-gradient(ellipse_43.30%_107.22%_at_51.09%_40.44%,_#EFF2F6_0%,_#F6E3EB_48%,_#D5DEED_93%);
+}
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-kanit: var(--font-kanit);
 }
 
 body {
