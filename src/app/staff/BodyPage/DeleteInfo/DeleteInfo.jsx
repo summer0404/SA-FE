@@ -1,10 +1,10 @@
 import Tooltip from "@mui/material/Tooltip";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 
-function Filter() {
+function DeleteInfo() {
   return (
     <Tooltip title="Filter" arrow>
-      <FilterAltIcon
+      <PersonRemoveIcon
         sx={{
           backgroundColor: "#CA79C6",
           padding: "10px",
@@ -21,4 +21,4 @@ function Filter() {
   );
 }
 
-export default Filter;
+export default DeleteInfo

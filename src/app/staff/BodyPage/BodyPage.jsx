@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import EditInfo from "./EditInfo/EditInfo";
+import DeleteInfo from "./DeleteInfo/DeleteInfo";
 
 function BodyPage() {
   return (
@@ -9,7 +10,14 @@ function BodyPage() {
         overflowY: "auto",
       }}
     >
-      <EditInfo />
+      <Box sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2
+      }}>
+        <EditInfo />
+        <DeleteInfo />
+      </Box>
     </Box>
   );
 }
