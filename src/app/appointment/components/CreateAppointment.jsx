@@ -23,101 +23,12 @@ function CreateAppointment() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [daysEnabled, setDaysEnabled] = useState({
-    Monday: false,
-    Tuesday: false,
-    Wednesday: false,
-    Thursday: false,
-    Friday: false,
-    Saturday: false,
-    Sunday: false,
-  });
 
-  const [employmentDate, setEmploymentDate] = useState(null); // State để lưu giá trị ngày
-  const [roleValue, setRoleValue] = useState(""); // State cho role
-  const [specialtyValue, setSpecialtyValue] = useState(""); // State cho specialty
 
-  const handleCheckboxChange = (day) => {
-    setDaysEnabled((prev) => ({
-      ...prev,
-      [day]: !prev[day],
-    }));
-  };
+
 
   const handleSubmit = async () => {
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const email = document.getElementById("email").value;
-    const phoneNumber = document.getElementById("phoneNumber").value;
-    // Kiểm tra các trường bắt buộc
-    if (!firstName) {
-      alert("First Name is required");
-      return;
-    }
-    if (!lastName) {
-      alert("Last Name is required");
-      return;
-    }
-    if (!email) {
-      alert("Email is required");
-      return;
-    }
-    if (!phoneNumber) {
-      alert("Phone Number is required");
-      return;
-    }
-    if (!roleValue) {
-      alert("Role is required");
-      return;
-    }
-    if (roleValue === "Doctor" && !specialtyValue) {
-      alert("Specialty is required for Doctors");
-      return;
-    }
-
-    // Tạo dữ liệu cần gửi
-    const data = {
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      role: roleValue,
-      specialty: specialtyValue,
-      // Các trường khác...
-      licenseNumber: document.getElementById("licenseNumber").value,
-      employmentDate: employmentDate ? employmentDate.toISOString() : null,
-      workingDays: Object.keys(daysEnabled).filter((day) => daysEnabled[day]),
-      workingHours: Object.keys(daysEnabled).reduce((acc, day) => {
-        if (daysEnabled[day]) {
-          acc[day] = {
-            startTime:
-              document.getElementById(`${day}-startTime`)?.value || null,
-            endTime: document.getElementById(`${day}-endTime`)?.value || null,
-          };
-        }
-        return acc;
-      }, {}),
-    };
-
-    try {
-      const response = await fetch("https://your-backend-api.com/employees", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        alert("Employee added successfully!");
-        handleClose();
-      } else {
-        const errorData = await response.json();
-        alert(`Error: ${errorData.message}`);
-      }
-    } catch (error) {
-      alert(`Error: ${error.message}`);
-    }
+ 
   };
 
   let myStyle = {
@@ -227,6 +138,7 @@ function CreateAppointment() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
+    
         <Box
           sx={{
             position: "absolute",
@@ -333,10 +245,10 @@ function CreateAppointment() {
               </Box>
             </Box>
 
-            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row", justifyContent: "center" }}>
+            <Box sx={{ width: "100%", display: "flex", gap: 2,  flexDirection: "column"}}>
               {/* Text area */}
               <TextField
-                className="min-h-[300px]"
+               
                 id="outlined-multiline-flexible"
                 label="Reason"
                 multiline
@@ -345,9 +257,28 @@ function CreateAppointment() {
                 
                 maxRows={4}
               />
+              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+               <Button
+                variant="contained"
+                sx={{
+                  px: 5,
+                  borderRadius: "10px",
+                  backgroundColor: "#CA79C6",
+                  "&:hover": {
+                    backgroundColor: "#CA79C6",
+                  },
+                }}
+                onClick={handleSubmit} // Gọi hàm handleSubmit
+              >
+                Submit
+              </Button>
+
+              </Box>
             </Box>
           </Box>
+                      
         </Box>
+        
       </Modal>
     </>
   );
