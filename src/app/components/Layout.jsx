@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         </div>
 
         {/* Main content area */}
-        <div className="flex-1 ml-[100px] p-2 relative  ">
+        <div className="flex-1 ml-[100px] relative">
           {/* Logo at the top-left corner */}
           <Image
             src="/XOX-logo.png" // Direct path to the logo in the public folder
