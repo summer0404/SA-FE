@@ -129,7 +129,7 @@ function EditInfo() {
   ];
   return (
     <>
-      <Tooltip title="Add employee" arrow>
+      <Tooltip title="Edit Information" arrow>
         <EditSquareIcon
           sx={{
             backgroundColor: "#CA79C6",

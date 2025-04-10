@@ -3,7 +3,7 @@ import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 
 function DeleteInfo() {
   return (
-    <Tooltip title="Filter" arrow>
+    <Tooltip title="Remove" arrow>
       <PersonRemoveIcon
         sx={{
           backgroundColor: "#CA79C6",
