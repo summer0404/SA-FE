@@ -239,11 +239,12 @@ function PatientProfile() {
                           py: 0.5,
                           borderRadius: "4px",
                           bgcolor:
-                            index === 0
+                            /*index === 0
                               ? "#ff7171"
                               : index === 1
                               ? "#ff8b8b"
-                              : "#ff9e9e",
+                              : "#ff9e9e"*/
+                            "#ff7171",
                           color: "white",
                           display: "inline-block",
                           fontSize: "0.75rem",
