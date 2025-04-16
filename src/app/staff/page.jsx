@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import HeaderPage from "./HeaderPage/HeaderPage";
 import BodyPage from "./BodyPage/BodyPage";
+import StaffTable from "./Table/StaffTable";
 
 function page() {
   return (
