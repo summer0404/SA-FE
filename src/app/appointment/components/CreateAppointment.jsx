@@ -20,6 +20,7 @@ import { Autocomplete } from "@mui/material";
 
 function CreateAppointment() {
   const [open, setOpen] = React.useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -28,7 +29,7 @@ function CreateAppointment() {
 
 
   const handleSubmit = async () => {
- 
+
   };
 
   let myStyle = {
@@ -49,68 +50,69 @@ function CreateAppointment() {
     },
   };
 
-  const patients = [
-    {
-      value: "PA001",
-      label: "Patient 1",
-    },
-    {
-      value: "PA002",
-      label: "Patient 2",
-    },
-    {
-      value: "PA003",
-      label: "Patient 3",
-    },
-    {
-      value: "PA004",
-      label: "Patient 4",
-    },
-    {
-      value: "PA005",
-      label: "Patient 5",
-    },
-    {
-      value: "PA006",
-      label: "Patient 6",
-    },
-  ];
 
-  const doctors = [
-    {
-      value: "DR001",
-      label: "Doctor 1",
-    },
-    {
-      value: "DR002",
-      label: "Doctor 2",
-    },
-    {
-      value: "DR003",
-      label: "Doctor 3",
-    },
-    {
-      value: "DR004",
-      label: "Doctor 4",
-    },]
 
-  const types = [
+
+
+
+
+  const genders = [
     {
-      value: "examination",
-      label: "Examination"
+      value: 'Male',
+      label: 'Male'
     },
     {
-      value: "consultation",
-      label: "Consultation"
+      value: 'Female',
+      label: 'Female'
     },
     {
-      value: "vaccination",
-      label: "Vaccination"
-    },
-    {
-      value: "other",
+      value: 'Other',
       label: "Other"
     }
+  ]
+
+  const specialties = [
+    { value: "anesthesiology", label: "Anesthesiology" },
+    { value: "cardiology", label: "Cardiology" },
+    { value: "dermatology", label: "Dermatology" },
+    { value: "emergency_medicine", label: "Emergency Medicine" },
+    { value: "ent", label: "ENT (Otolaryngology)" },
+    { value: "gastroenterology", label: "Gastroenterology" },
+    { value: "internal_medicine", label: "Internal Medicine" },
+    { value: "nephrology", label: "Nephrology" },
+    { value: "neurology", label: "Neurology" },
+    { value: "oncology", label: "Oncology" },
+    { value: "ophthalmology", label: "Ophthalmology" },
+    { value: "orthopedics", label: "Orthopedics" },
+    { value: "pathology", label: "Pathology" },
+    { value: "pediatrics", label: "Pediatrics" },
+    { value: "psychiatry", label: "Psychiatry" },
+    { value: "radiology", label: "Radiology" },
+    { value: "rehabilitation_medicine", label: "Rehabilitation Medicine" },
+    { value: "surgery", label: "Surgery" },
+    { value: "urology", label: "Urology" },
+    { value: "obstetrics_gynecology", label: "Obstetrics and Gynecology (OB-GYN)" }
+  ]
+
+  const appointmentSession = [
+    { value: "08:00", label: "08:00 - 08:30" },
+    { value: "08:30", label: "08:30 - 09:00" },
+    { value: "09:00", label: "09:00 - 09:30" },
+    { value: "09:30", label: "09:30 - 10:00" },
+    { value: "10:00", label: "10:00 - 10:30" },
+    { value: "10:30", label: "10:30 - 11:00" },
+    { value: "11:00", label: "11:00 - 11:30" },
+    { value: "11:30", label: "11:30 - 12:00" },
+    { value: "12:00", label: "12:00 - 12:30" },
+    { value: "12:30", label: "12:30 - 13:00" },
+    { value: "13:00", label: "13:00 - 13:30" },
+    { value: "13:30", label: "13:30 - 14:00" },
+    { value: "14:00", label: "14:00 - 14:30" },
+    { value: "14:30", label: "14:30 - 15:00" },
+    { value: "15:00", label: "15:00 - 15:30" },
+    { value: "15:30", label: "15:30 - 16:00" },
+    { value: "16:00", label: "16:00 - 16:30" },
+    { value: "16:30", label: "16:30 - 17:00" }
   ]
 
 
@@ -138,7 +140,7 @@ function CreateAppointment() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-    
+
         <Box
           sx={{
             position: "absolute",
@@ -151,8 +153,8 @@ function CreateAppointment() {
             borderRadius: "10px",
             boxShadow: 24,
             p: 4,
-            height: "60vh",
-            // overflowY: "auto",
+            height: "90vh",
+            overflowY: "auto",
           }}
         >
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -166,119 +168,119 @@ function CreateAppointment() {
             <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row" }}>
 
               <Box sx={{ width: "50%" }}>
-                <Autocomplete
+                <TextField
+                  id="fullName"
+                  label="Full Name"
+                  variant="standard"
+                  fullWidth
                   sx={myStyle}
-                  id="patientId"
-                  
-                  options={patients}
-                  renderInput={(params) => (
-                    <TextField {...params} label="Patient" variant="standard" />
-                  )}
+                  required
                 />
               </Box>
 
               <Box sx={{ width: "50%" }}>
-                <Autocomplete
-                  sx={myStyle}
-                  id="doctorId"
-                  
-                  options={doctors}
-                  renderInput={(params) => (
-                    <TextField {...params} label="Doctor" variant="standard" />
-                  )}
-                />
-
+                <TextField required variant='standard' sx={myStyle} name="email" fullWidth label="Email" />
               </Box>
             </Box>
 
-            {/* Date and Time */}
-            <Box sx={{ width: '100%', display: 'flex', gap: 2, flexDirection: "row", alignItems: "center" }}>
-              <Box sx={{ width: "50%", display: "flex", gap: 2, flexDirection: "row" }}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["TimePicker"]}>
-                    <TimePicker
-                      id='startTime' // Thêm id
-                      label="Start Time"
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["TimePicker"]}>
-                    <TimePicker
-                      id='endTime' // Thêm id
-                      label="End Time"
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-
-              </Box>
+            {/* Birthday & phone Number */}
+            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row" }}>
 
               <Box sx={{ width: "50%", display: "flex", alignItems: "center" }}>
-                <Box sx={{ width: "50%", display: "flex", alignItems: "center" }}>
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker sx={{ paddingTop: "8px" }} />
-                  </LocalizationProvider>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker label='Birthday' sx={{ ...myStyle, width: '100%' }} />
+                </LocalizationProvider>
 
-                </Box>
+              </Box>
 
-                <Box sx={{ width: "50%", display: "flex", alignItems: "center" }}>
-                  <TextField
-                    id="type"
-                    select
-                    label="Type"
-                    // value={roleValue} // Liên kết với state
-                    // onChange={(e) => setRoleValue(e.target.value)} // Cập nhật state
-                    variant="standard"
-                    fullWidth
-                    sx={myStyle}
-                    required
-                  >
-                    {types.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-
-                </Box>
+              <Box sx={{ width: "50%" }}>
+                <TextField name="phoneNumber" required sx={myStyle} fullWidth label='Phone Number' />
               </Box>
             </Box>
 
-            <Box sx={{ width: "100%", display: "flex", gap: 2,  flexDirection: "column"}}>
+            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row" }}>
+              <TextField label='Gender' id='gender' select name='gender' fullWidth variant='standard' sx={myStyle} required >
+                {genders.map((option) => (
+                  <MenuItem key={option.value} value={option.value} >
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Box>
+
+            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row" }}>
+              <TextField label='Address' id='gender' name='address' fullWidth variant='standard' sx={myStyle} required />
+            </Box>
+
+            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row" }}>
+              <TextField label='Specialty' id='specialty' select name='specialty' fullWidth variant='standard' sx={myStyle} required >
+                {specialties.map((option) => (
+                  <MenuItem  key={option.value} value={option.value} >
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Box>
+
+            {/* Schedule */}
+            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "row" }}>
+
+              <Box sx={{ width: "50%", display: "flex", alignItems: "center" }}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker label='Appointment date' sx={{ ...myStyle, width: '100%' }} />
+                </LocalizationProvider> 
+              </Box>
+
+              <Box sx={{ width: "50%" }}>
+                <TextField required select sx={myStyle} fullWidth label='Appointment session' >
+                  {appointmentSession.map((option) => (
+                    <MenuItem  value={option.value} key={option.value} >
+                      {
+                        option.label
+                      }
+                    </MenuItem>
+                    ))}
+                </TextField>
+              </Box>
+            </Box>
+
+
+
+
+            <Box sx={{ width: "100%", display: "flex", gap: 2, flexDirection: "column" }}>
               {/* Text area */}
               <TextField
-               
+
                 id="outlined-multiline-flexible"
-                label="Reason"
+                label="Symptom "
                 multiline
                 sx={{ ...myStyle, width: "100%" }}
                 variant="standard"
-                
+
                 maxRows={4}
               />
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-               <Button
-                variant="contained"
-                sx={{
-                  px: 5,
-                  borderRadius: "10px",
-                  backgroundColor: "#CA79C6",
-                  "&:hover": {
+                <Button
+                  variant="contained"
+                  sx={{
+                    px: 5,
+                    borderRadius: "10px",
                     backgroundColor: "#CA79C6",
-                  },
-                }}
-                onClick={handleSubmit} // Gọi hàm handleSubmit
-              >
-                Submit
-              </Button>
+                    "&:hover": {
+                      backgroundColor: "#CA79C6",
+                    },
+                  }}
+                  onClick={handleSubmit} // Gọi hàm handleSubmit
+                >
+                  Submit
+                </Button>
 
               </Box>
             </Box>
           </Box>
-                      
+
         </Box>
-        
+
       </Modal>
     </>
   );
