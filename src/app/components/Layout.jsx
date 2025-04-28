@@ -7,7 +7,7 @@ export default function Layout({ children }) {
       style={{ background: "var(--color-linear-gradient)" }}
       className="h-screen flex items-center justify-center"
     >
-      <div className="relative flex h-[90vh] w-[90vw] bg-[#FFFFFF]/60 mx-auto mt-10">
+      <div className="relative flex h-[90vh] w-[90vw] bg-[#FFFFFF]/60 mx-auto">
         
         <div
           className="absolute top-0 left-0 h-full"
