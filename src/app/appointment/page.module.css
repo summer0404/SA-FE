@@ -1,0 +1,85 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.h1 {
+  font-family: Kanit; /* Sửa "front" thành "font-family" */
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 100%; /* Sửa "Line-height" thành "line-height" */
+  color: #271E4A;
+  margin-left: 0;
+  margin-bottom: 50px;
+}
+
+.h2 {
+  font-family: Kanit; /* Sửa "front" thành "font-family" */
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 100%; /* Sửa "Line-height" thành "line-height" */
+  color: #271E4A;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.tableContainer { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 20px; /* Thêm khoảng cách giữa các bảng */
+  flex-wrap: wrap; /* Cho phép xuống dòng khi không đủ không gian */
+  padding: 20px;
+}
+
+.table1 {
+  flex: 3;
+  space: 0;
+  display: flex;
+  justify-content: left; /* Căn giữa nội dung bên trong */
+  min-width: 700px; /* Đảm bảo bảng không bị co nhỏ quá */
+  margin-bottom: 20px;
+}
+
+.tableHead {
+  background: #EDF4FC; /* Sửa "back-ground" thành "background" và đặt màu nền mặc định */
+}
+
+/* Thêm màu xanh cho dòng đầu tiên của bảng Booked Appointment */
+.tableDetails1 .MuiTableHead-root {
+  background-color: #EDF4FC; /* Màu xanh lá, bạn có thể thay bằng mã màu khác như #00F cho xanh dương */
+  color: black ; 
+}
+
+/* .table1 .css-39l9oo-MuiPaper-root-MuiTableContainer-root {
+  
+} */
+
+/* Bảng Doctor */
+.table2 {
+  flex: 2;
+  space: 0;
+  display: flex;
+  justify-content: left;
+
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.statusCell .css-u08b8i-MuiTableCell-root{
+  font:'Kanit';
+  fontWeight: 'bold';
+  textAlign: 'left';
+  color: 'white';
+  borderRadius: '5px';
+  width: 50px !important;
+  height: 50px !important;
+  padding: '8px';
+  margin: 'auto';
+}
