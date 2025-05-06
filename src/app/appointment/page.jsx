@@ -1,14 +1,19 @@
-import CreateAppointment from "./components/CreateAppointment";
+import AppointmentTable from "./components/AppointmentTable";
+import Box from "@mui/material/Box";
 
 export default function Appointment() {
-    return (
-
-        <main className="p-[16px] mr-[16px] " >
-        <section className=" flex justify-between items-center" >
-            <h1 className="text-[34px] font-bold" >Appointment</h1>
-            <CreateAppointment />
-        </section>
-
-        </main>
-    )
+  return (
+    <Box
+      sx={{
+        height: `calc(90vh - 100px - 16px)`, //100px for header, 16px for margin
+        p: 2,
+        mr: 2,
+        gap: 2,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <AppointmentTable />
+    </Box>
+  );
 }

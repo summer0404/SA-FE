@@ -1,13 +1,11 @@
 import Box from "@mui/material/Box";
-import HeaderPage from "./HeaderPage/HeaderPage";
-import BodyPage from "./BodyPage/BodyPage";
-import StaffTable from "./Table/StaffTable";
+import StaffTable from "./components/StaffTable";
 
-function page() {
+export default function Appointment() {
   return (
     <Box
       sx={{
-        height: `calc(90vh - 100px - 16px)`, //100px for header, 16px for margin
+        height: `calc(90vh - 100px - 16px)`,
         p: 2,
         mr: 2,
         gap: 2,
@@ -15,10 +13,7 @@ function page() {
         flexDirection: "column",
       }}
     >
-      <HeaderPage />
-      <BodyPage />
+      <StaffTable />
     </Box>
   );
 }
-
-export default page;
