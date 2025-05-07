@@ -58,12 +58,12 @@ export default function AppointmentTable() {
   //   fetchAppointment();
   // }, []);
 
-  const fetchAppointment = async () => {
-    setLoading(true);  // Đặt loading true khi bắt đầu fetch
+  const fetchAppointment = async (filters = {}) => {
+    setLoading(true); // Đặt loading true khi bắt đầu fetch
     try {
-      const appointmentsData = await searchAppointment();
+      const appointmentsData = await searchAppointment(filters);
       console.log(appointmentsData);
-      
+
       setAppointments(appointmentsData);
       enqueueSnackbar("Lấy các lịch hẹn thành công!", {
         variant: "success",
@@ -74,15 +74,13 @@ export default function AppointmentTable() {
         variant: "error",
       });
     } finally {
-      setLoading(false);  // Đặt loading false khi fetch xong
+      setLoading(false); // Đặt loading false khi fetch xong
     }
   };
-  
+
   useEffect(() => {
-    if (loading) {
-      fetchAppointment();
-    }
-  }, [loading]);
+    fetchAppointment();
+  }, []);
 
   const handleOpenDialog = (mode, row = null) => {
     setDialogMode(mode);

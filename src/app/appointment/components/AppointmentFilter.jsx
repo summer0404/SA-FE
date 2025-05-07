@@ -6,10 +6,10 @@ import SearchIcon from "@mui/icons-material/Search";
 export default function AppointmentFilter({ onSearch }) {
   const [filters, setFilters] = useState({
     identity: "",
-    patientName: "",
-    phone: "",
-    staffCode: "",
-    staffName: "",
+    fullName: "",
+    phoneNumber: "",
+    doctorCode: "",
+    doctorName: "",
   });
 
   const handleChange = (field) => (e) => {
@@ -17,6 +17,7 @@ export default function AppointmentFilter({ onSearch }) {
   };
 
   const handleSearch = () => {
+    console.log(filters);
     onSearch?.(filters); // Gọi callback nếu có
   };
 
@@ -35,8 +36,8 @@ export default function AppointmentFilter({ onSearch }) {
             variant="outlined"
             fullWidth
             size="small"
-            value={filters.patientName}
-            onChange={handleChange("patientName")}
+            value={filters.fullName}
+            onChange={handleChange("fullName")}
             onKeyDown={handleKeyDown}
           />
         </Grid>
@@ -46,8 +47,8 @@ export default function AppointmentFilter({ onSearch }) {
             variant="outlined"
             fullWidth
             size="small"
-            value={filters.phone}
-            onChange={handleChange("phone")}
+            value={filters.phoneNumber}
+            onChange={handleChange("phoneNumber")}
             onKeyDown={handleKeyDown}
           />
         </Grid>
@@ -57,8 +58,8 @@ export default function AppointmentFilter({ onSearch }) {
             variant="outlined"
             fullWidth
             size="small"
-            value={filters.staffCode}
-            onChange={handleChange("staffCode")}
+            value={filters.doctorCode}
+            onChange={handleChange("doctorCode")}
             onKeyDown={handleKeyDown}
           />
         </Grid>
@@ -68,8 +69,8 @@ export default function AppointmentFilter({ onSearch }) {
             variant="outlined"
             fullWidth
             size="small"
-            value={filters.staffName}
-            onChange={handleChange("staffName")}
+            value={filters.doctorName}
+            onChange={handleChange("doctorName")}
             onKeyDown={handleKeyDown}
           />
         </Grid>
